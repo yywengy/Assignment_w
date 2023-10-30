@@ -1,0 +1,29 @@
+---
+title: "Explain the function"
+output: html_document
+date: "2023-10-30"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+```{r assignment 2}
+library(ggplot2)
+library(dplyr)
+data("economics")
+sample_data <- economics
+transforming <- function(sample_data) {
+  mutated_data <- sample_data %>%
+  mutate(uemp_rate = round((unemploy/pop)*100,1), psavert_log = log(psavert))      
+  # compute the unemployment rate 
+  return(mutated_data)
+}
+result_data <- transforming(sample_data)
+print(result_data)
+
+```
+In the first argument, we compute the unemployment rate and add the new column.
+In the second argument, we aim to add a new column that relates to the natural logarithm of the personal saving rate.
+
