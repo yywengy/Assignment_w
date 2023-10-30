@@ -4,7 +4,7 @@ data("economics")
 sample_data <- economics
 transforming <- function(sample_data) {
   mutated_data <- sample_data %>%
-  mutate(uemp_rate = round((unemploy/pop)*100,1))       # compute the unemployment rate 
+  mutate(uemp_rate = round((unemploy/pop)*100,1), psavert_log = log(psavert))       # compute the unemployment rate 
   return(mutated_data)
 }
 result_data <- transforming(sample_data)
